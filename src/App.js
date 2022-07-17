@@ -2,7 +2,7 @@ import React,{useState} from 'react';
 import './App.css';
 import Expenses from './Expenses';
 import New_expense from './NewExpense';
-import ItemList from './ToDoList/ItemList';
+
 
 const Dummy_Expenses = [
 {
@@ -48,7 +48,7 @@ const addExpense = (addingExpense) =>{
     {/* Here we transfer upper object to the child component bt props with (items) prop name*/}
       <Expenses  items={expenses}/>
 
-    <ItemList />
+   
 
     </div>
   );

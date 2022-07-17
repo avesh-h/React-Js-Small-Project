@@ -1,0 +1,13 @@
+
+
+.main-item{
+    display: flex;
+    border: 1px solid blue;
+    border-radius: 10px;
+    justify-content: space-evenly;
+    background-color: black;
+    color: #fff;
+    width: 70%;
+    margin-top: 50px;
+
+}

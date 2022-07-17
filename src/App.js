@@ -1,25 +1,58 @@
-import logo from './logo.svg';
+import React,{useState} from 'react';
 import './App.css';
+import Expenses from './Expenses';
+import New_expense from './NewExpense';
+import ItemList from './ToDoList/ItemList';
+
+const Dummy_Expenses = [
+{
+title: 'Car Insurance', 
+amount: 295 ,
+date : new Date(2021 ,2, 3)
+},
+
+{
+title: 'Groceries', 
+amount: 595 ,
+date : new Date(2021 ,5, 5) 
+},
+
+{
+title: 'Bills', 
+amount: 2976 ,
+date : new Date(2021 ,12, 20)
+}
+
+]
 
 function App() {
+
+  const [expenses,setExpenses]=useState(Dummy_Expenses)
+
+const addExpense = (addingExpense) =>{
+  setExpenses((previousState)=>{
+    return (
+      [addingExpense,...previousState]
+    )
+  })
+    
+  }
+  // console.log(getExpenseData)
+
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+
+    {/* Add Expense Mini project */}
+    <New_expense onAddExpense = {addExpense}/>
+    {/* Here we transfer upper object to the child component bt props with (items) prop name*/}
+      <Expenses  items={expenses}/>
+
+    <ItemList />
+
     </div>
   );
+ 
 }
 
 export default App;
